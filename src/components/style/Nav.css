@@ -21,7 +21,8 @@
       cursor: pointer;
       margin-left: 30px;
       margin-right: 30px;
-      font-weight: 400;
+      font-weight: 300;
+    
       opacity:0.7;
       transition:transform 50ms ease-out;
   }
