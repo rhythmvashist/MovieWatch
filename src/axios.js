@@ -3,7 +3,7 @@ import  axios from 'axios';
 // base url to make a request to the movei database 
 
 const instance =axios.create({
-    baseURL='https://api.themoviedb.org/3/'
+    baseURL:'https://api.themoviedb.org/3/'
 })
 
 export default instance;

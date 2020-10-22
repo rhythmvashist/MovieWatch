@@ -1,13 +1,23 @@
 import React from 'react'
+import TextTruncate from 'react-text-truncate'
 import "./style/VideoCard.css"
+import ThumbUpAltTwoToneIcon from '@material-ui/icons/ThumbUpAltTwoTone';
+
+const imageBaseUrl ="https://image.tmdb.org/t/p/original/";
 
 function VideoCard({movie}) {
     return (
         <div className="videocard">
-            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flazaruslair.files.wordpress.com%2F2018%2F01%2Fthe-tenant.jpg&f=1&nofb=1" alt=""/>
-            <p>this is movei</p>
-            <h2>Movie Title</h2>
-            <p>no of likes</p>
+            <img src={`${imageBaseUrl}${movie.backdrop_path|| movie.poster_path}`} alt="Movie Thumbnail"/>
+            
+            <TextTruncate line={1} element='p' truncate ='...' text={movie.overview}/>
+            <h2>{movie.title || movie.original_name}</h2>
+            <p>
+                {movie.media_type && `${movie.media_type}`}
+                {movie.release_date||movie.first_air_date}
+                <ThumbUpAltTwoToneIcon />
+                {movie.vote_count}
+                </p>
         </div>
         
     )
