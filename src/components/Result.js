@@ -2,25 +2,25 @@ import React,{useState,useEffect} from 'react'
 import "./style/Result.css"
 import VideoCard from './VideoCard'
 import axios from "../axios";
-import requests from './requests'
 
-function Result() {
+
+function Result({selectedOption}) {
     const [movies,setMovies] = useState([]);
 
     useEffect(() => {
         async function fetchData( ){
-            const request = await axios.get(requests.fetchActionMovie);
+            const request = await axios.get(selectedOption);
             setMovies(request.data.results)
             return  request;
         }
         fetchData();
-    },[])
+    },[selectedOption])
 
 
     return (
         <div className="results">
             {movies.map(movie => (
-                <VideoCard movie={movie}/>
+                <VideoCard key={movie.id} movie={movie}/>
             ))}
         </div>
     )
