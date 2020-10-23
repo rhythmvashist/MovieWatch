@@ -12,11 +12,11 @@ function VideoCard({movie}) {
             
             <TextTruncate line={1} element='p' truncate ='...' text={movie.overview}/>
             <h2>{movie.title || movie.original_name}</h2>
-            <p>
-                {movie.media_type && `${movie.media_type}`}
-                {movie.release_date||movie.first_air_date}
-                <ThumbUpAltTwoToneIcon />
-                {movie.vote_count}
+            <p className='stats'>
+            {/* only show when movie type is available*/}
+                {movie.media_type && `${movie.media_type} -`}
+                {movie.release_date||movie.first_air_date} -{" "} 
+                <ThumbUpAltTwoToneIcon />{" "}{movie.vote_count}
                 </p>
         </div>
         

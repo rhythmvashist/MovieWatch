@@ -14,9 +14,18 @@
 .videocard > img{
     height:300px;
     object-fit: contain;
-    width:500;  
+    width:500px;  
 }
 
 .videocard > h2{
     padding-top:10px;
+}
+
+.stats{
+  display: none;
+  opacity: 0.8;
+}
+
+.videocard:hover > .stats{
+  display: inline;
 }
