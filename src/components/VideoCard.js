@@ -2,6 +2,8 @@ import React from 'react'
 import TextTruncate from 'react-text-truncate'
 import "./style/VideoCard.css"
 import ThumbUpAltTwoToneIcon from '@material-ui/icons/ThumbUpAltTwoTone';
+import movieTrailer from 'movie-trailer'
+import YouTube from 'react-youtube'
 
 const imageBaseUrl ="https://image.tmdb.org/t/p/original/";
 
