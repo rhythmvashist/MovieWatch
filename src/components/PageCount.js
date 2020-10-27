@@ -10,13 +10,9 @@ function PageCount({pageNumber,setPageNumber}) {
         setPageNumber(page);  
     } 
 
-    function onChangePage(event,page){
-        setPageNumber(page);
-    }
-
     return (
         <div className='page_count'> 
-            <Pagination page={pageNumber} onChange ={onChangePage} count={1000} on/>   
+            <Pagination page={pageNumber} onChange ={(event,page)=>setPageNumber(page)} count={1000} on/>   
         </div>
     )
 }

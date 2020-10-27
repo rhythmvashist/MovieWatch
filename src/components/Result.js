@@ -26,7 +26,7 @@ function Result({selectedOption}) {
             return  request;
         }
         fetchData();
-        // if the genre chages then the page is reset to 1 
+        // if the genre changes then the page is reset to 1 
         setPage(1);
     },[selectedOption])
 
@@ -38,6 +38,18 @@ function Result({selectedOption}) {
             return  request;
         }
         fetchData();
+
+        try {
+            // trying to use new API - https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollTo
+            window.scroll({
+              top: 0,
+              left: 0,
+              behavior: 'smooth',
+            });
+          } catch (error) {
+            // just a fallback for older browsers
+            window.scrollTo(0, 0);
+          }
     },[page])
 
     // const handleClick=(movie)=>{
