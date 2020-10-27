@@ -1,0 +1,16 @@
+.page_count{
+    margin-left:auto;
+    margin-right:auto;
+    widows: 100%;
+    /* display: flex; */
+    background-color:white;
+
+}
+
+.MuiPagination-root{
+    padding:5;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+

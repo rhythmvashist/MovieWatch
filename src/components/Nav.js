@@ -16,7 +16,6 @@ function Nav({setSelectedOption}) {
             <h2 onClick={()=> setSelectedOption(requests.fetchSciFci)}>Sci-Fci</h2>
             <h2 onClick={()=> setSelectedOption(requests.fetchAnimaton)}>Animation</h2>
             <h2 onClick={()=> setSelectedOption(requests.fetchWestern)}>Western</h2>
-
         </div>
     )
 }
