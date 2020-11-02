@@ -3,14 +3,13 @@ import "./style/Result.css"
 import VideoCard from './VideoCard'
 import axios from "../axios";
 import YouTube from 'react-youtube';
-import  PageCount from './PageCount'
 
-function Result({selectedOption}) {
+
+function Result({selectedOption,page,setPage}) {
     const [movies,setMovies] = useState([]);
-    const [page,setPage] = useState(1);
-
+    
     // const opts = {
-    //     height: '390',
+//     height: '390',
     //     width: '640',
     //     playerVars: {
     //       // https://developers.google.com/youtube/player_parameters
@@ -18,6 +17,20 @@ function Result({selectedOption}) {
     //     },
     //   };
     
+    
+    // const handleClick=(movie)=>{
+    //     if(trailer){
+    //         setTrailer('');
+    //     }
+    //     else{
+    //         movieTrailer(movie?.name ||"")
+    //         .then((url) => {
+    //             const 
+    //         })
+    //     }
+
+    // }
+
     useEffect(() => {
         async function fetchData( ){
             const request = await axios.get(`${selectedOption}&page=${page}`);
@@ -26,6 +39,7 @@ function Result({selectedOption}) {
             return  request;
         }
         fetchData();
+
         // if the genre changes then the page is reset to 1 
         setPage(1);
     },[selectedOption])
@@ -33,7 +47,6 @@ function Result({selectedOption}) {
     useEffect(() => {
         async function fetchData( ){
             const request = await axios.get(`${selectedOption}&page=${page}`);
-            console.log(request);
             setMovies(request.data.results)
             return  request;
         }
@@ -52,18 +65,6 @@ function Result({selectedOption}) {
           }
     },[page])
 
-    // const handleClick=(movie)=>{
-    //     if(trailer){
-    //         setTrailer('');
-    //     }
-    //     else{
-    //         movieTrailer(movie?.name ||"")
-    //         .then((url) => {
-    //             const 
-    //         })
-    //     }
-
-    // }
 
     return (
         <div>
@@ -72,7 +73,6 @@ function Result({selectedOption}) {
                     <VideoCard key={movie.id} movie={movie}/>
                 ))}            
             </div>
-            <PageCount pageNumber={page} setPageNumber={setPage}/>
         </div>
     )
 }
