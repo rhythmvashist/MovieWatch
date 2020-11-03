@@ -12,13 +12,15 @@ function App() {
   const [page, setPage] = useState(1);
   const [movies, setMovies] = useState([]);
 
-  
   return (
     <div className="App">
-      <Header setSelectedOption={setSelectedOption} setMovies={setMovies} />
-      <Nav selectedOption={selectedOption} setSelectedOption={setSelectedOption} />
+      <Header setSelectedOption={setSelectedOption} />
+      <Nav
+        selectedOption={selectedOption}
+        setSelectedOption={setSelectedOption}
+      />
       <Result
-        movie={movies}
+        movies={movies}
         setMovies={setMovies}
         selectedOption={selectedOption}
         page={page}

@@ -13,10 +13,12 @@ function VideoCard({ movie }) {
 
   return (
     <div className="videocard">
-      <img
-        src={`${imageBaseUrl}${movie.backdrop_path || movie.poster_path}`}
-        alt="Movie Thumbnail"
-      />
+      {(movie.backdrop_path || movie.poster_path) && (
+        <img
+          src={`${imageBaseUrl}${movie.backdrop_path || movie.poster_path}`}
+          alt="Movie Thumbnail"
+        />
+      )}
       {/* Using text truncate library to truncate the text  */}
       <TextTruncate line={1} element="p" truncate="..." text={movie.overview} />
       <h2>{movie.title || movie.original_name}</h2>
