@@ -12,4 +12,5 @@ export default {
     fetchWestern:`/discover/movie?api_key=${API_KEY}&with_generes=37&language=en-US`,
     fetchAnimaton:`/discover/movie?api_key=${API_KEY}&with_generes=16&language=en-US`,
     fetchTv:`/discover/movie?api_key=${API_KEY}&with_generes=10770&language=en-US`,
+    searchMovie:`search/movie?api_key=${API_KEY}$language=en-US&include_adult=false&query=`
 }
