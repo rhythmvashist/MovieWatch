@@ -3,7 +3,7 @@ import "./style/Result.css";
 import axios from "../axios";
 import VideoCard from "./VideoCard";
 
-function Result({ selectedOption, movies, setMovies, page, setPage }) {
+function Result({ selectedOption, movies, setMovies, page, setPage, setTotalPage }) {
   // const opts = {
   //     height: '390',
   //     width: '640',
@@ -16,7 +16,7 @@ function Result({ selectedOption, movies, setMovies, page, setPage }) {
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(`${selectedOption}&page=${page}`);
-      console.log(request);
+      setTotalPage(request.data.total_pages)
       setMovies(request.data.results);
       return request;
     }
@@ -28,7 +28,7 @@ function Result({ selectedOption, movies, setMovies, page, setPage }) {
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(`${selectedOption}&page=${page}`);
-      console.log(request);
+      setTotalPage(request.data.total_pages)
       setMovies(request.data.results);
       return request;
     }

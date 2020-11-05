@@ -11,6 +11,7 @@ function App() {
   const [selectedOption, setSelectedOption] = useState(requests.fetchTrending);
   const [page, setPage] = useState(1);
   const [movies, setMovies] = useState([]);
+  const [totalPage,setTotalPage] = useState(1);
 
   return (
     <div className="App">
@@ -25,8 +26,9 @@ function App() {
         selectedOption={selectedOption}
         page={page}
         setPage={setPage}
+        setTotalPage={setTotalPage}
       />
-      <PageCount pageNumber={page} setPageNumber={setPage} />
+      <PageCount pageNumber={page} setPageNumber={setPage} totalPage={totalPage}/>
     </div>
   );
 }
