@@ -1,4 +1,5 @@
-import React from "react";
+import React,{useContext} from "react";
+import {GlobalContext} from "../Context/GlobalState";
 import TextTruncate from "react-text-truncate";
 import "./style/VideoCard.css";
 import ThumbUpAltTwoToneIcon from "@material-ui/icons/ThumbUpAltTwoTone";
@@ -7,7 +8,10 @@ import AddToQueueRoundedIcon from "@material-ui/icons/AddToQueueRounded";
 const imageBaseUrl = "https://image.tmdb.org/t/p/original/";
 
 function VideoCard({ movie }) {
+  const {addMovieToList} = useContext(GlobalContext);
+
   const handleClick = (movie) => {
+    addMovieToList(movie)
     console.log(movie);
   };
 
