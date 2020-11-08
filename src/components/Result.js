@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {useEffect } from "react";
 import "./style/Result.css";
 import axios from "../axios";
 import VideoCard from "./VideoCard";

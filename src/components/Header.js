@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./style/Header.css";
 import requests from "./requests";
 import HomeTwoToneIcon from "@material-ui/icons/HomeTwoTone";
