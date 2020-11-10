@@ -38,6 +38,18 @@
   cursor: pointer;
 }
 
-.addbtn {
-  margin-right: 18px;
+.btn {
+  margin-right: 15px;
+  margin-bottom: 15px;
+  align-items: top;
+
+}
+
+.addbtn .endbtn{
+  padding:0.5px;
+  margin-bottom:5px;
+}
+
+.addbtn{
+  cursor: pointer;
 }

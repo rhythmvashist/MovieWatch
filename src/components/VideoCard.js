@@ -3,16 +3,23 @@ import {GlobalContext} from "../Context/GlobalState";
 import TextTruncate from "react-text-truncate";
 import "./style/VideoCard.css";
 import ThumbUpAltTwoToneIcon from "@material-ui/icons/ThumbUpAltTwoTone";
-import AddToQueueRoundedIcon from "@material-ui/icons/AddToQueueRounded";
+
+
+import {IoIosAdd} from 'react-icons/io'
+import {FiCheck} from 'react-icons/fi'
 
 const imageBaseUrl = "https://image.tmdb.org/t/p/original/";
 
 function VideoCard({ movie }) {
-  const {addMovieToList} = useContext(GlobalContext);
+  const {addMovieToList,watchlist} = useContext(GlobalContext);
 
+  let storedMovie = watchlist.filter(obj => obj.id === movie.id)
+  const disableMovie = storedMovie.length > 0 ? true : false;
+
+  
   const handleClick = (movie) => {
     addMovieToList(movie)
-    console.log(movie);
+
   };
 
   return (
@@ -33,10 +40,15 @@ function VideoCard({ movie }) {
           {movie.release_date || movie.first_air_date} -{" "}
           <ThumbUpAltTwoToneIcon /> {movie.vote_count}
         </div>
-        <AddToQueueRoundedIcon
-          onClick={() => handleClick(movie)}
-          className="addbtn"
-        />
+        {!disableMovie ? (
+          <IoIosAdd
+            className="btn addbtn"
+            size="35px"
+            onClick={() => handleClick(movie)}
+          />
+        ) : (
+          <FiCheck disabled={true} size="28px" className="btn endbtn" />
+        )}
       </p>
     </div>
   );
