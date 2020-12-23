@@ -1,17 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, {useEffect } from "react";
 import "./style/Result.css";
 import axios from "../axios";
 import VideoCard from "./VideoCard";
 
 function Result({ selectedOption, movies, setMovies, page, setPage, setTotalPage }) {
-  // const opts = {
-  //     height: '390',
-  //     width: '640',
-  //     playerVars: {
-  //       // https://developers.google.com/youtube/player_parameters
-  //       autoplay: 1,
-  //     },
-  //   };
 
   useEffect(() => {
     async function fetchData() {
